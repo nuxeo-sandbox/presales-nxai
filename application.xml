@@ -3,5 +3,8 @@
     <version>lts-2025.0</version>
     <packages/>
   </targetPlatform>
-  <dependencies class="linked-hash-set"/>
+  <dependencies class="linked-hash-set">
+    <string>nuxeo-ai-aws:5.0.2</string>
+    <string>nuxeo-ai-content-intelligence:5.0.2</string>
+  </dependencies>
 </application>
