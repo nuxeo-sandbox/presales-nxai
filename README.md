@@ -19,7 +19,7 @@ This is a [Nuxeo Studio](https://doc.nuxeo.com/n/dqH) Project to be used as a [m
 # Installation
 
 * Follow the documentation for Nuxeo AI Content Intelligence installation: [https://doc.nuxeo.com/nxdoc/nuxeo-ai-release-notes/#installation](https://doc.nuxeo.com/nxdoc/nuxeo-ai-release-notes/#installation)
-* Follow the Nuxeo AI AWS instructions in the [README](https://github.com/nuxeo/nuxeo-ai/tree/master1/addons/nuxeo-ai-aws-core#nuxeo-ai-aws-integration)
+* Follow the Nuxeo AI AWS instructions in [https://github.com/nuxeo/nuxeo-ai/tree/master1/addons/nuxeo-ai-aws-core#nuxeo-ai-aws-integration](https://github.com/nuxeo/nuxeo-ai/tree/master1/addons/nuxeo-ai-aws-core#nuxeo-ai-aws-integration)
 * Add `presales-nxai` as a dependency to your Nuxeo Studio project.
 
 ## Optional Configuration
