@@ -4,8 +4,8 @@ This project adds automated AI enrichment for video, images, and documents to th
 
 It combines two capabilities:
 
-* **Hyland Content Intelligence** — automatic `dc:description` and tags for images and documents, leveraging the [Nuxeo AI Content Intelligence](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-ai-content-intelligence) plugin.
-* **AWS AI** — automatic tags for video, leveraging the [Nuxeo AI AWS](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-ai-aws) plugin (Amazon Rekognition video label detection).
+* **Hyland Content Intelligence** — automatic `dc:description` and tags for images and documents, leveraging the [Nuxeo AI Content Intelligence](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-ai-content-intelligence) plugin
+* **AWS Rekognition** — automatic tags for video, leveraging the [Nuxeo AI AWS](https://connect.nuxeo.com/nuxeo/site/marketplace/package/nuxeo-ai-aws) plugin
 
 The goal of this project is to be plug-and-play, providing automated AI enrichment for supported content types with no configuration required.
 
