@@ -1,0 +1,31 @@
+<xml-extension id="NXAI_OVERRIDE_DOCUMENTS" version="1.2">
+  <xml>&lt;!--
+Override enrichment for Documents so that we can provide instructions to CIC.
+--&gt;
+&lt;extension target=&quot;org.nuxeo.ai.services.AIComponent&quot; point=&quot;enrichment&quot;&gt;
+  &lt;enrichment name=&quot;ai.contentintelligence.documents&quot; kind=&quot;/classification/textLabels&quot;
+              class=&quot;org.nuxeo.ai.contentintelligence.ContentIntelligenceEnrichmentProvider&quot;&gt;
+    &lt;mimeTypes&gt;
+      &lt;mimeType name=&quot;application/pdf&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;application/msword&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;application/vnd.openxmlformats-officedocument.wordprocessingml.document&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;application/vnd.ms-excel&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;application/vnd.ms-powerpoint&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;application/vnd.openxmlformats-officedocument.presentationml.presentation&quot; normalized=&quot;true&quot;/&gt;
+      &lt;mimeType name=&quot;text/plain&quot; normalized=&quot;true&quot;/&gt;
+    &lt;/mimeTypes&gt;
+    &lt;option name=&quot;configName&quot;&gt;default&lt;/option&gt;
+    &lt;!--
+    `text-summarization` drives dc:description
+    `named-entity-recognition-text` drives the labels/tags.
+     --&gt;
+    &lt;option name=&quot;actions&quot;&gt;text-summarization,named-entity-recognition-text&lt;/option&gt;
+    &lt;!--
+    `instructions` controls the description
+    `maxWordCount` controls the length of the description
+    --&gt;
+    &lt;option name=&quot;extraJsonPayload&quot;&gt;{&quot;maxWordCount&quot;:${nxai.documents.maxWordCount:=60},&quot;instructions&quot;:{&quot;customPrompt&quot;:&quot;${nxai.documents.prompt:=In two or three sentences, describe what this document is and its purpose, and give the single most important takeaway a reader would want before opening it. Summarize at the level of gist and intent, the kind of abstract that is not already obvious from a full-text search. Do not enumerate the individual tables, figures, values, or sections, and do not restate the content line by line. Base the summary only on what the document actually contains; do not invent facts.}&quot;}}&lt;/option&gt;
+  &lt;/enrichment&gt;
+&lt;/extension&gt;</xml>
+</xml-extension>

@@ -1,0 +1,25 @@
+<xml-extension id="NXAI_WEBP" version="1.2">
+  <xml>&lt;!--
+Nuxeo OOTB lacks proper WebP support (WebP files are imported as File instead of
+Picture). Meanwhile the Content Intelligence connector (on which
+nuxeo-ai-content-intelligence-connector is built) calls it out as a supported
+format but also lacks the necessary config (cf.
+https://hyland.atlassian.net/browse/NXCON-347).
+So we add WebP support for completeness.
+--&gt;
+&lt;extension target=&quot;org.nuxeo.ecm.platform.mimetype.service.MimetypeRegistryService&quot; point=&quot;mimetype&quot;&gt;
+  &lt;mimetype normalized=&quot;image/webp&quot; binary=&quot;true&quot; iconPath=&quot;image.gif&quot;&gt;
+    &lt;mimetypes&gt;
+      &lt;mimetype&gt;image/webp&lt;/mimetype&gt;
+    &lt;/mimetypes&gt;
+    &lt;extensions&gt;
+      &lt;extension&gt;webp&lt;/extension&gt;
+    &lt;/extensions&gt;
+  &lt;/mimetype&gt;
+&lt;/extension&gt;
+&lt;extension target=&quot;org.nuxeo.ecm.platform.filemanager.service.FileManagerService&quot; point=&quot;plugins&quot;&gt;
+  &lt;plugin name=&quot;Imageplugin&quot; class=&quot;org.nuxeo.ecm.platform.picture.extension.ImagePlugin&quot; order=&quot;10&quot; merge=&quot;true&quot;&gt;
+    &lt;filter&gt;image/webp&lt;/filter&gt;
+  &lt;/plugin&gt;
+&lt;/extension&gt;</xml>
+</xml-extension>

@@ -1,0 +1,22 @@
+<xml-extension id="NXAI_OVERRIDE_DISABLE_AUTOTAG" version="1.2">
+  <xml>&lt;!--
+Disable nuxeo-ai-content-intelligence built-in tagging.
+
+Why? OOTB tagging is pretty weak for images. It uses the
+`named-entity-recognition-image` action, which only returns proper nouns like
+brands, people, landmarks, specific recognizable things.
+
+I switched to the `image-metadata-generation` action instead. But the output of
+this action (a string of comma-separated labels) is not understood by the OOTB
+tagger (which just saves the entire string as one tag). So we also switch to
+using Automation to assign tags.
+
+Meanwhile this is a global setting; it disables tagging for both images and
+documents. So the automation must handle the OOTB output for documents, which
+is just named-entity-recognition-text entities.
+--&gt;
+&lt;extension target=&quot;org.nuxeo.runtime.stream.service&quot; point=&quot;streamProcessor&quot;&gt;
+  &lt;streamProcessor name=&quot;storeContentIntelligenceMetadataProcessor&quot; enabled=&quot;false&quot;
+                   class=&quot;org.nuxeo.ai.contentintelligence.StoreContentIntelligenceMetadata&quot;/&gt;
+&lt;/extension&gt;</xml>
+</xml-extension>
